@@ -1,0 +1,77 @@
+Naziv stanice,Grad,Početak rada,Pripada mreži,EOI Code,Klasifikacija,Zona,Latitude,Longitude,Latitude DMS,Longitude DMS,Nadmorska visina
+Kikinda Centar,Kikinda,2010-02-01,SEPA,RS1002A,background,urban,45.821483,20.454008,45° 49' 17'' N,20° 27' 14'' N,78m
+Novi Sad Rumenačka,Novi Sad,2015-06-08,SEPA,RS1007A,traffic,urban,45.262626,19.819016,45° 15' 45'' N,19° 49' 8'' N,78m
+Novi Sad Liman,Novi Sad ,2015-06-01,SEPA,RS1008A,background,urban,45.238642,19.835704,45° 14' 19'' N,19° 50' 8'' N,81m
+Beočin Centar,Beočin,2015-07-02,SEPA,RS1009A,background,urban,45.208386,19.721709,45° 12' 30'' N,19° 43' 18'' N,87m
+Sremska Mitrovica,Sremska Mitrovica,2015-07-02,SEPA,RS1010A,traffic,urban,44.972185,19.609349,44° 58' 19'' N,19° 36' 33'' N,82m
+Pančevo Sodara,Pančevo ,2015-07-02,SEPA,RS1014A,industrial,urban,44.862975,20.64429,20° 38' 39'' N,44° 51' 46'' N,80m
+Beograd Stari grad,Beograd ,2015-07-02,SEPA,RS1018A,background,urban,44.82112,20.459113,20° 27' 32'' N,44° 49' 16'' N,103m
+Beograd Novi Beograd,Beograd,2015-07-02,SEPA,RS1023A,background,urban,44.803179,20.400152,20° 24' 0'' N,44° 48' 11'' N,74m
+Beograd Mostar,Beograd,2015-07-02,SEPA,RS1025A,traffic,urban,44.798746,20.450184,20° 27' 0'' N,44° 47' 55'' N,83m
+Beograd Vračar,Beograd,2015-07-02,SEPA,RS1026A,background,urban,44.796959,20.475288,44° 47' 49'' N,20° 28' 31'' N,141m
+Beograd Zeleno brdo,Beograd,2008-11-17,SEPA,RS1027A,background,suburban,44.786488,20.521715,44° 47' 11'' N,20° 31' 18'' N,240m
+Šabac,Šabac,2015-07-02,SEPA,RS1028A,background,suburban,44.749781,19.693917,19° 41' 38'' N,44° 44' 59'' N,79m
+Kostolac,Kostolac,2015-07-02,SEPA,RS1030A,background,suburban,44.71749,21.173399,21° 10' 24'' N,44° 43' 2'' N,75m
+Smederevo Centar,Smederevo,2015-07-02,SEPA,RS1032A,traffic,urban,44.664084,20.926729,20° 55' 36'' N,44° 39' 50'' N,79m
+Obrenovac Centar,Obrenovac,2015-07-02,SEPA,RS1033A,traffic,suburban,44.659478,20.204496,20° 12' 16'' N,44° 39' 34'' N,76m
+Smederevo Carina,Smederevo,2015-07-02,SEPA,RS1034A,background,suburban,44.652336,20.931675,20° 55' 54'' N,44° 39' 8'' N,147m
+Smederevo Radinac,Smederevo,2015-07-02,SEPA,RS1036A,industrial,suburban,44.619408,20.969422,44° 37' 9'' N,20° 58' 9'' N,82m
+Loznica,Loznica,2015-07-02,SEPA,RS1038A,background,urban,44.53224,19.214534,44° 31' 56'' N,19° 12' 52'' N,122m
+Valjevo,Valjevo,2015-07-02,SEPA,RS1041A,background,urban,44.273049,19.899006,19° 53' 56'' N,44° 16' 22'' N,181m
+Bor Brezonik,Bor,2008-12-01,SEPA,RS1043A,industrial,rural,44.098064,22.091738,22° 5' 30'' N,44° 5' 53'' N,390m
+Bor Gradski park,Bor,2009-04-13,SEPA,RS1044A,industrial,urban,44.076003,22.099514,44° 4' 33'' N,22° 5' 58'' N,378m
+Bor Institut IRM,Bor,2015-07-02,SEPA,RS1045A,industrial,urban,44.059937,22.101434,22° 6' 5'' N,44° 3' 35'' N,389m
+Kragujevac,Kragujevac,2015-07-02,SEPA,RS1046A,background,urban,44.011573,20.925031,20° 55' 30'' N,44° 0' 41'' N,175m
+Kosjerić,Kosjerić,2015-07-02,SEPA,RS1047A,background,suburban,44.002941,19.905174,44° 0' 10'' N,19° 54' 18'' N,416m
+Popovac ,Popovac,2015-07-02,SEPA,RS1048A,industrial,suburban,43.910592,21.508391,43° 54' 38'' N,21° 30' 30'' N,200m
+Zaječar,Zaječar,2015-07-02,SEPA,RS1049A,background,urban,43.902072,22.273255,43° 54' 7'' N,22° 16' 23'' N,133m
+Čačak ,Čačak ,2015-07-02,SEPA,RS1050A,background,urban,43.893316,20.345513,20° 20' 43'' N,43° 53' 35'' N,242m
+Paraćin,Paraćin,2015-07-02,SEPA,RS1051A,background,urban,43.859649,21.408121,21° 24' 29'' N,43° 51' 34'' N,130m
+Užice,Užice,2015-07-02,SEPA,RS1052A,traffic,urban,43.854255,19.843181,19° 50' 35'' N,43° 51' 15'' N,407m
+Kraljevo,Kraljevo,2015-07-02,SEPA,RS1053A,background,urban,43.728017,20.693602,20° 41' 36'' N,43° 43' 40'' N,205m
+Kruševac,Kruševac,2015-07-02,SEPA,RS1054A,background,urban,43.58547,21.307667,43° 35' 7'' N,21° 18' 27'' N,152m
+Kamenički Vis EMEP,Kamenički Vis ,2015-07-02,SEPA,RS1055G,background,rural,43.404011,21.947746,21° 56' 51'' N,43° 24' 14'' N,804m
+Niš O.š. Sveti Sava,Niš,2015-07-02,SEPA,RS1056A,background,urban,43.322554,21.919025,21° 55' 8'' N,43° 19' 21'' N,198m
+Niš IZJZ Niš,Niš,2015-07-02,SEPA,RS1057A,traffic,urban,43.316552,21.913548,21° 54' 48'' N,43° 18' 59'' N,200m
+Kopaonik,Kopaonik,2015-07-02,SEPA,RS1058A,background,rural,43.28414,20.802102,20° 48' 7'' N,43° 17' 2'' N,1712m
+Vranje,Vranje,2015-07-02,SEPA,RS1059A,background,urban,42.551125,21.896556,21° 53' 47'' N,42° 33' 4'' N,473m
+Beograd Ovča,Beograd,2015-07-02,IPH-BGD,RS3012A,background,suburban,44.884112,20.527552,20° 31' 39'' N,44° 53' 2'' N,m
+Beograd Zemun TB,Beograd,2015-07-02,IPH-BGD,RS3016A,background,urban,44.835246,20.403299,20° 24' 11'' N,44° 50' 6'' N,m
+Beograd Despota Stefana ,Beograd,2015-07-02,IPH-BGD,RS3020A,traffic,urban,44.8168146768154,20.4699406027794,44° 49' 0'' N,20° 28' 11'' N,m
+Beograd Oml. brigada ,Beograd,2015-07-02,IPH-BGD,RS3022A,background,urban,44.805925,20.398811,44° 48' 21'' N,20° 23' 55'' N,m
+Beograd Obrenovac,Obrenovac,2015-07-02,IPH-BGD,RS3031A,background,suburban,44.6699995831708,20.1973316073418,44° 40' 11'' N,20° 11' 50'' N,m
+Beograd Obrenovac Ušće,Beograd Obrenovac Ušće,2015-07-02,IPH-BGD,RS3035A,industrial,rural,44.629741,20.011135,44° 37' 47'' N,20° 0' 40'' N,m
+Beograd Lazarevac ,Lazarevac ,2015-07-02,IPH-BGD,RS3040A,background,suburban,44.384113,20.265436,44° 23' 2'' N,20° 15' 55'' N,m
+Pančevo Cara Dušana,Pančevo,2015-07-02,APV-PAN,RS4013A,traffic,urban,44.870226,20.648069,44° 52' 12'' N,20° 38' 53'' N,m
+Pančevo Vatrogasni dom,Pančevo,2015-07-02,APV-PAN,RS4015A,industrial,suburban,44.8586504491852,20.6491014361382,44° 51' 31'' N,20° 38' 56'' N,m
+Pančevo Vojlovica,Pančevo,2015-07-02,APV-PAN,RS4017A,industrial,suburban,44.8444518310066,20.669236779213,44° 50' 40'' N,20° 40' 9'' N,m
+Pančevo Starčevo,Pančevo,2015-07-02,APV-PAN,RS4012A,industrial,suburban,44.808258,20.704773,44° 48' 29'' N,20° 42' 17'' N,m
+Beograd Vinča,Beograd,2020-02-18,IPH-BGD,RS3019A,industrial,suburban,44.766649,20.61098,44° 45' 59'' N,20° 36' 39'' N,m
+Beograd Dragiša Mišović,Beograd,2020-02-19,IPH-BGD,RS3021A,traffic,urban,44.777237,20.457029,44° 46' 38'' N,20° 27' 25'' N,0m
+Beograd Jajinci,Beograd,2023-04-15,IPH-BGD,RS3034A,traffic,suburban,44.740492,20.485642,44° 44' 25'' N,20° 29' 8'' N,m
+Veliki Crljeni,Beograd,2016-12-01,IPH-BGD,RS3038A,industrial,rural,44.4758084725346,20.3089141845703,44° 28' 32'' N,20° 18' 32'' N,m
+MOBILNA SURDULICA,beograd,2017-12-15,SEPA,RS1090A,unknown,unknown,44.74855,19.689692,44° 44' 54'' N,19° 41' 22'' N,m
+Novi Pazar,Novi Pazar,2020-02-08,SEPA,RS1060A,background,urban,43.139704,20.516353,43° 8' 22'' N,20° 30' 58'' N,m
+Vršac,Vršac,2020-02-17,SEPA,RS1011A,background,urban,45.114459,21.295725,45° 6' 52'' N,21° 17' 44'' N,m
+Bor Krivelj,Bor Krivelj,2015-07-02,ZIJIN,RS1101A,industrial,rural,44.137878,22.093133,22° 5' 35'' N,44° 8' 16'' N,401m
+Bor Slatina,Bor Slatina,2016-05-09,ZIJIN,RS1102A,industrial,rural,44.040096,22.162871,44° 2' 24'' N,22° 9' 46'' N,400m
+Pirot,Pirot,2021-06-08,CITY-PI,RS1201A,traffic,urban,43.158098,22.592406,43° 9' 29'' N,22° 35' 32'' N,m
+Beograd Topčiderska Zvezda,,2021-10-27,IPH-BGD,RS3023A,traffic,urban,44.788646,20.444507,44° 47' 19'' N,20° 26' 40'' N,m
+Beograd Vračar Dom zdravlja,Beograd,2021-11-22,IPH-BGD,RS3025A,traffic,unknown,44.796427,20.486154,44° 47' 47'' N,20° 29' 10'' N,m
+Beograd Bežanijska kosa,Beograd,2021-11-22,IPH-BGD,RS3026A,traffic,urban,44.815028,20.3779,44° 48' 54'' N,20° 22' 40'' N,m
+Beograd Banovo brdo,,2021-11-22,IPH-BGD,RS3027A,traffic,unknown,44.777284,20.409701,44° 46' 38'' N,20° 24' 34'' N,m
+Beograd Ada petlja,Beograd,2021-11-22,IPH-BGD,RS3029A,traffic,unknown,44.7913433933573,20.4256007812383,,,m
+Beograd Surčin,Beograd,2022-06-20,IPH-BGD,RS3013A,traffic,suburban,44.7924,20.272734,44° 47' 32'' N,20° 16' 21'' N,m
+Beograd Zemun Ugrinovačka,Beograd,2022-06-20,IPH-BGD,RS3010A,traffic,urban,44.849212,20.377266,44° 47' 32'' N,20° 16' 21'' N,m
+Beograd Borča,Beograd,2022-06-20,IPH-BGD,RS3011A,traffic,urban,44.873952,20.446585,44° 52' 26'' N,20° 26' 47'' N,m
+Beograd Franša Deperea,Beograd,2022-06-20,IPH-BGD,RS3014A,traffic,urban,44.794262,20.463173,44° 47' 39'' N,20° 27' 47'' N,m
+Beograd Leštane,Beograd-Leštane,2022-06-20,IPH-BGD,RS3015A,traffic,urban,44.728534,20.580721,44° 47' 32'' N,20° 16' 21'' N,m
+Beograd Stojčino Brdo,Beograd,2022-06-20,IPH-BGD,RS3017A,industrial,suburban,44.776953,20.535435,44° 46' 37'' N,20° 32' 7'' N,m
+Beograd Barajevo,Beograd,2022-06-20,IPH-BGD,RS3018A,industrial,suburban,44.58871,20.429121,44° 35' 19'' N,20° 25' 44'' N,m
+Beograd Ada Marina,Beograd,2022-06-20,IPH-BGD,RS3030A,traffic,urban,44.790166,20.4169,44° 47' 24'' N,20° 25' 0'' N,m
+Beograd Mladenovac,Beograd-Mladenovac,2022-06-20,IPH-BGD,RS3032A,traffic,suburban,44.444047,20.696033,44° 47' 32'' N,20° 16' 21'' N,m
+Beograd Sopot,Beograd,2022-06-20,IPH-BGD,RS3033A,traffic,suburban,44.519807,20.578488,44° 31' 11'' N,20° 34' 42'' N,m
+Beograd Resnik,Beograd,2023-04-15,IPH-BGD,RS3036A,background,suburban,44.711376,20.461135,44° 42' 40'' N,20° 27' 40'' N,m
+Beograd Mirijevo,Beograd,2023-04-15,IPH-BGD,RS3037A,background,urban,44.789792,20.538598,44° 47' 23'' N,20° 32' 18'' N,m
+Beograd na vodi,Beograd,2023-04-15,IPH-BGD,RS3039A,traffic,urban,44.811892,20.450132,44° 48' 42'' N,20° 27' 0'' N,m
+Beograd Danijelova,,2023-04-15,IPH-BGD,RS3041A,background,urban,44.782294,20.479144,44° 46' 56'' N,20° 28' 44'' N,m

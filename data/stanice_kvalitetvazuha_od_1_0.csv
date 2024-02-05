@@ -1,0 +1,41 @@
+naziv,longitude,latitude,n. visina,tip stanice ,tip zone ,karakteristika zone,Mreza,nac. kod,eionet_code
+Kikinda,20.454008,45.821483,78,background,urban,residential,SEPA,RS1002A,RS0034A
+Novi Sad_SPENS,19.841190,45.245065,78,traffic,urban,residential/commercial,SEPA,RS1007A,RS0029A
+Novi Sad_Liman,19.835704,45.238642,81,background,urban,residential,SEPA,RS1008A,RS0031A
+Beocin_Centar,19.721709,45.208386,87,background,urban,Ind/Res,SEPA,RS1009A,RS0001A
+S. Mitrovica,19.609349,44.972185,82,traffic,urban,Res/Com,SEPA,RS1010A,
+Pancevo_Sodara,20.644290,44.862975,80,industrial,urban,residential,SEPA,RS1014A,RS0035A
+Beograd_Stari grad,20.459113,44.821120,103,background,urban,Res/Com,SEPA,RS1018A,RS0032A
+Beograd_Panc.most,20.486829,44.817608,94,traffic,urban,Com/Ind,SEPA,RS1019A,
+Beograd_N.Beograd,20.400152,44.803179,74,background,urban,Res/Com,SEPA,RS1023A,RS0036A
+Beograd_Mostar,20.450184,44.798746,83,traffic,urban,residential/commercial,SEPA,RS1025A,RS0028A
+Beograd_Vracar,20.475288,44.796959,141,background,urban,residential/commercial,SEPA,RS1026A,RS0037A
+Beograd_Zeleno brdo,20.521755,44.786463,240,background,suburban,residential,SEPA,RS1027A,
+Sabac,19.693917,44.749781,79,background,suburban,residential,SEPA,RS1028A,
+Kostolac,21.173399,44.717490,75,background,suburban,industrial,SEPA,RS1030A,RS0038A
+Smederevo_Centar,20.926729,44.664084,79,background,urban,residential/commercial,SEPA,RS1032A,
+Obrenovac_Centar,20.204496,44.659478,76,traffic,suburban,residential/commercial,SEPA,RS1033A,
+Smederevo_Carina,20.931675,44.652336,147,background,suburban,residential,SEPA,RS1034A,RS0039A
+Smederevo_Radinac,20.968708,44.618849,82,industrial,suburban,Ind/Res,SEPA,RS1036A,
+Smederevo_Ralja,20.971092,44.593667,84,industrial,suburban,Ind/Res,SEPA,RS1037A,
+Loznica,19.214534,44.532240,122,background,urban,residential/commercial,SEPA,RS1038A,RS0040A
+Valjevo,19.899006,44.273049,181,traffic,urban,residential/commercial,SEPA,RS1041A,RS0041A
+Bor_Krivelj,22.093133,44.137878,401,industrial,rural,natural,SEPA,RS1042A,
+Bor_Brezonik,22.091738,44.098064,390,industrial,rural,Ind/Res,SEPA,RS1043A,
+Bor_Gradski park,22.099514,44.076003,378,industrial,urban,residential/commercial,SEPA,RS1044A,RS0009A
+Bor_Institut RIM,22.101434,44.059937,389,industrial,urban,residential/commercial,SEPA,RS1045A,RS0042A
+Kragujevac,20.925031,44.011573,175,background,urban,residential/commercial,SEPA,RS1046A,RS0043A
+Kosjeric,19.905174,44.002941,416,background,suburban,residential,SEPA,RS1047A,
+Popovac,21.508391,43.910592,200,industrial,suburban,residential,SEPA,RS1048A,
+Zajecar,22.273255,43.902072,133,background,urban,residential/commercial,SEPA,RS1049A,RS0044A
+Cacak_Ins. za vocarstvo,20.345513,43.893316,242,background,urban,residential/commercial,SEPA,RS1050A,RS0045A
+Paracin,21.408121,43.859649,130,background,urban,residential/commercial,SEPA,RS1051A,
+Uzice,19.843181,43.854255,407,traffic,urban,residential/commercial,SEPA,RS1052A,
+Kraljevo,20.693602,43.728017,205,background,urban,residential/commercial,SEPA,RS1053A,
+Krusevac,21.307667,43.585470,152,background,urban,residential/commercial,SEPA,RS1054A,RS0046A
+Kamenicki Vis - EMEP,21.947746,43.404011,804,background,rural,natural,SEPA,RS1055G,RS0005R
+Nis_O.s. Sv. Sava,21.919025,43.322554,198,background,urban,residential/commercial,SEPA,RS1056A,RS0033A
+Nis_IZJZ Nis,21.913548,43.316552,200,traffic,urban,residential/commercial,SEPA,RS1057A,RS0030A
+Kopaonik,20.802102,43.284140,1712,background,rural,natural,SEPA,RS1058A,RS0047A
+Vranje,21.896556,42.551125,473,background,urban,residential/commercial,SEPA,RS1059A,RS0048A
+Obrenovac_Dep. pepela,20.041379,44.638734,77,,,,SEPA,RS1099A,
