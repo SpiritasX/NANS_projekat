@@ -1,4 +1,4 @@
-﻿datum,Kikinda_Centar_8h,Novi Sad_Liman_8h,Beograd Stari grad_8h,Beograd_Novi_Beograd_8h,Beograd Vracar_8h,Beograd Zeleno brdo_8h,Kosjeric_8h,Popovac_8h,Kamenicki Vis_8h,Nis O.S. Sveti Sava_8h,Kopaonik_8h,Novi Pazar_8h,Vrsac_8h
+﻿Datum,Kikinda Centar,Novi Sad Liman,Beograd Stari grad,Beograd Novi Beograd,Beograd Vracar,Beograd Zeleno brdo,Kosjeric,Popovac,Kamenicki Vis,Nis O.s. Sveti Sava,Kopaonik,Novi Pazar,Vrsac
 2020-01-01,29.76,43.00,23.55,30.50,16.50,34.19,47.89,23.09,47.64,39.85,52.51,,
 2020-01-02,19.14,43.69,29.09,28.43,17.68,40.53,43.99,27.80,57.73,46.44,43.30,,
 2020-01-03,24.98,21.43,4.95,4.86,6.28,29.86,34.48,24.48,75.31,25.26,52.83,,
@@ -365,4 +365,3 @@
 2020-12-29,60.54,76.11,66.31,71.45,67.73,39.38,50.70,40.60,75.86,66.81,85.48,64.35,62.75
 2020-12-30,59.08,62.35,52.85,60.60,51.05,31.75,15.40,36.98,81.26,59.61,83.64,46.43,64.31
 2020-12-31,41.96,31.13,33.69,32.86,25.56,17.63,18.55,34.53,73.65,55.75,82.38,40.54,44.54
-,,,,,,,,,,,,,
