@@ -9,13 +9,17 @@ import pandas as pd
 
 def map_of_serbia():
     m = Basemap(llcrnrlon=18.7,llcrnrlat=41.7,urcrnrlon=23.2,urcrnrlat=46.3, resolution='i', projection='merc')
+    
+    return m
 
+def edit_map_of_serbia(m):
     m.drawcountries()
     m.drawcounties(color='b')
     m.drawcoastlines()
     m.fillcontinents()
 
     return m
+   
 
 # df = pd.read_csv('stanice.csv')
 
