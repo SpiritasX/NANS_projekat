@@ -3,10 +3,13 @@ import matplotlib
 import matplotlib.pyplot as plt
 
 
-def load_all_tables(plot=False):
+def load_all_tables(plot=False, years=[x for x in range(2011, 2021)], file='co'):
     dfs = []
-    for year in range(2011, 2021):
-        dfs.append(pd.read_csv(f'..\\data\\{year}\\{year}-co_max8h.csv'))
+    for year in years:
+        try:
+            dfs.append(pd.read_csv(f'data\\{year}\\{year}-{file}.csv'))
+        finally:
+            continue
 
     for df in dfs:
         df['Datum'] = pd.to_datetime(df['Datum'], format='%Y-%m-%d')
@@ -21,3 +24,7 @@ def load_all_tables(plot=False):
         plt.show()
 
     return df
+
+
+def load_stations():
+    return pd.read_csv('data\\stanice.csv')
