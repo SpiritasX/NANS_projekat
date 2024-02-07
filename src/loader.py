@@ -10,8 +10,6 @@ def load_all_tables(plot=False, years=[x for x in range(2011, 2021)], file='co')
             dfs.append(pd.read_csv(f'data\\{year}\\{year}-{file}.csv'))
         finally:
             continue
-    
-    print(dfs)
 
     for df in dfs:
         df['Datum'] = pd.to_datetime(df['Datum'], format='%Y-%m-%d')
@@ -26,3 +24,7 @@ def load_all_tables(plot=False, years=[x for x in range(2011, 2021)], file='co')
         plt.show()
 
     return df
+
+
+def load_stations():
+    return pd.read_csv('data\\stanice.csv')
