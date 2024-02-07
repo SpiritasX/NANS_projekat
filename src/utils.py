@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-def fillna_mean(df, col_name, chunk):
+def fillna_mean(df, col_name, chunk = 40):
     '''Fill NA values with windowed mean.'''
     df_copy = df.copy()
     for i in range(0, len(df)):

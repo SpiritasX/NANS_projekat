@@ -1,8 +1,12 @@
 import sys
+
+from matplotlib.animation import FuncAnimation
+import pandas as pd
 import loader
 import map
-import time_series
+#import time_series
 import utils
+import clustering
 
 
 def find_arg(args, arg):
@@ -21,6 +25,7 @@ if __name__ == "__main__":
         print(f"Usage \"{sys.argv[0]} [options]\"")
         print("Options:")
         print("\t--time-series\t\t\tDisplay time series analysis")
+        print("\t--clustering\t\t\tDisplay clustering analysis")
         print("\t--print-all-stations\t\tDisplay a list of all stations in Serbia")
         print("\t--station <name>\t\tStation for which to do the analysis (\"Kikinda Centar\")")
         print("\t--years <string>\tA string list of years (\"2018 2019 2020\")")
@@ -58,8 +63,25 @@ if __name__ == "__main__":
     else:
         df = loader.load_all_tables(plot=True)
 
-    if "--time-series" in args and station is not None:
-        df = utils.fillna_mean(df, station, 40)
-        time_series.yearly(df, station)
-        time_series.weekly(df, station)
-        time_series.time_series_trend(df, station)
+    # if "--time-series" in args and station is not None:
+    #     df = utils.fillna_mean(df, station, 40)
+    #     time_series.yearly(df, station)
+    #     time_series.weekly(df, station)
+    #     time_series.time_series_trend(df, station)
+        
+
+    if "--clustering" in args and years is not None:
+        df = loader.load_all_tables(years=years, file = 'pm2.5')
+        stations = pd.read_csv('data\stanice.csv', header=None)
+        for stanica in df:
+            df = utils.fillna_mean(df, stanica, chunk = 80) 
+        data = df
+        print(data)
+
+        data_scaled = clustering.normalization(data)
+        clustering.elbowMethod(data_scaled)
+        stanice_transposed = clustering.transposing(stations)
+        df_spojeno = clustering.innerJoinTables([stanice_transposed, data])
+        m = map.map_of_serbia()
+        
+

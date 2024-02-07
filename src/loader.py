@@ -14,7 +14,7 @@ def load_all_tables(plot=False, years=[x for x in range(2011, 2021)], file='co')
     for df in dfs:
         df['Datum'] = pd.to_datetime(df['Datum'], format='%Y-%m-%d')
 
-    df = pd.concat(dfs).set_index('Datum').sort_values(by='Datum')
+    df = pd.concat(dfs, join = 'inner').set_index('Datum').sort_values(by='Datum')
 
     for column in df.columns.difference(['Datum']):
         df[column] = pd.to_numeric(df[column], errors='coerce')
