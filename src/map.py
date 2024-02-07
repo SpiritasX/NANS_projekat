@@ -1,11 +1,7 @@
 from mpl_toolkits.basemap import Basemap
-import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib.patches import Circle
-import pandas as pd
+# from matplotlib.patches import Circle
 
-#fig, (ax1, ax2) = plt.subplots(1, 2)
-#ax1=fig.add_axes([0.1,0.1,0.8,0.8])
 
 def map_of_serbia():
     m = Basemap(llcrnrlon=18.7,llcrnrlat=41.7,urcrnrlon=23.2,urcrnrlat=46.3, resolution='i', projection='merc')
@@ -17,7 +13,6 @@ def map_of_serbia():
 
     return m
 
-# df = pd.read_csv('stanice.csv')
 
 def draw_stations(m, lons, lats):
     lon, lat = m(lons, lats)
