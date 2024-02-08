@@ -71,17 +71,29 @@ if __name__ == "__main__":
         
 
     if "--clustering" in args and years is not None:
-        df = utils.load_all_tables(years=years, file = 'pm2.5')
-        stations = pd.read_csv('data\stanice.csv', header=None)
-        for stanica in df:
-            df = utils.fillna_mean(df, stanica, chunk = 80) 
-        data = df
-        print(data)
+        if "--save-to-file" in args:
+            file_name = find_arg(args, "--save-to-file")
 
-        data_scaled = utils.normalize(data)
-        clustering.elbowMethod(data_scaled)
-        stanice_transposed = utils.transposing(stations)
-        df_spojeno = utils.inner_join_tables([stanice_transposed, data])
-        m = map.map_of_serbia()
+            df = utils.load_all_tables(years=years, file='pm2.5')
+            stations = pd.read_csv('data\stanice.csv', header=None)
+            for stanica in df:
+                df = utils.fillna_mean(df, stanica, chunk=80)
+
+            data_scaled = utils.normalize(df)
+            stanice_transposed = utils.transposing(stations)
+            df_spojeno = utils.inner_join_tables([stanice_transposed, data])
+            data_to_save = clustering.save_clusters(df_spojeno, df)
+
+            with open(file_name + ".pkl", "wb") as fp:
+                pickle.dump(data_to_save, fp)
+        else:
+            # Oblik ovih podataka je lista gde svaki element predstavlja jedan
+            # fittovan model koji odgovara jednom danu
+            # Pristupanje klasterima jednog dana bi se vrsilo sa clusters[i].labels_
+            clusters = None
+            with open(file_name + ".pkl", "rb") as fp:
+                clusters = pickle.load(fp)
+            clustering.elbowMethod(data_scaled)
+            m = map.map_of_serbia()
         
 
