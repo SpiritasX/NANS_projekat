@@ -1,20 +1,12 @@
 from matplotlib.animation import FuncAnimation
+import utils
 import numpy as np
 import pandas as pd
 from sklearn.cluster import KMeans
-from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
 from mpl_toolkits.basemap import Basemap
 
 from map import edit_map_of_serbia
-#|from utils_nans1 import *
-
-# Normalizacija podataka
-def normalization(data):
-    scaler = StandardScaler()
-    data_scaled = scaler.fit_transform(data)
-    #print(data_scaled)
-    return data_scaled  
 
 # Pronalaženje optimalnog broja klastera pomoću metode "Elbow"
 def elbowMethod(data_scaled):
@@ -31,21 +23,6 @@ def elbowMethod(data_scaled):
     plt.ylabel('WCSS')  # Within-Cluster Sum of Squares
     plt.show()
 
-# Transponovanje stanice.csv
-def transposing(stanice): # tabela stanice.csv
-    stanice_transposed = stanice.transpose().set_index(0)
-    for i in range(1, len(stanice_transposed.columns) + 1):
-        stanice_transposed = stanice_transposed.rename(columns={i: stanice_transposed[i]['Naziv stanice']})
-    stanice_transposed = stanice_transposed[1:]
-    #print(stanice_transposed)
-    return stanice_transposed
-
-# Spajamo dve tabele pomocu inner join-a
-def innerJoinTables(dfs):
-    df_spojeno = pd.concat(dfs, join='inner')
-    #df_spojeno.index.rename('Parametri', inplace=True)
-    #print(df_spojeno)
-    return df_spojeno
 
 # Obicno iscrtavanje frejmova
 def clustering(df_spojeno, data, m): 
