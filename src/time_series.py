@@ -1,12 +1,28 @@
-import statsmodels.api as sm
 from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 from statsmodels.tsa.arima.model import ARIMA
 from statsmodels.tsa.seasonal import seasonal_decompose
-from statsmodels.tsa.seasonal import STL
-import matplotlib
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
+
+from prophet import Prophet
+
+
+def PFM(df, col_name):
+    df = pd.DataFrame().assign(ds=df.index, y=list(df[col_name]))
+    model = Prophet()
+    model.fit(df)
+    return model
+
+
+def plot_PFM(model, period):
+    future = model.make_future_dataframe(periods=period)
+    forecast = model.predict(future)
+    model.plot(forecast)
+    plt.show()
+
+    model.plot_components(forecast)
+    plt.show()
 
 
 def walk_forward_loop(train_df, val_df, column_name, order=(0, 0, 0)):
@@ -86,14 +102,14 @@ def time_series_trend(df, col_name):
     plt.grid(True)
     plt.show()
 
-    # yearly_trend = air_pollution_data.resample('Y').mean()
-    # plt.figure(figsize=(10, 6))
-    # plt.plot(yearly_trend.index.year, yearly_trend['Kikinda Centar'], marker='o', color='red')
-    # plt.title('Yearly Trend in Pollution Levels')
-    # plt.xlabel('Year')
-    # plt.ylabel('Mean Pollution Level')
-    # plt.grid(True)
-    # plt.show()
+    yearly_trend = df.resample('Y').mean()
+    plt.figure(figsize=(10, 6))
+    plt.plot(yearly_trend.index.year, yearly_trend[col_name], marker='o', color='red')
+    plt.title('Yearly Trend in Pollution Levels')
+    plt.xlabel('Year')
+    plt.ylabel('Mean Pollution Level')
+    plt.grid(True)
+    plt.show()
 
 
 def decompose(df, col_name, plot=True):

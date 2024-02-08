@@ -59,6 +59,8 @@ if __name__ == "__main__":
         df = loader.load_all_tables(plot=True)
 
     if "--time-series" in args and station is not None:
+        model = time_series.PFM(df, station)
+        time_series.plot_PFM(model, 365)
         df = utils.fillna_mean(df, station, 40)
         time_series.yearly(df, station)
         time_series.weekly(df, station)
