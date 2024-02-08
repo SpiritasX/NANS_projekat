@@ -6,6 +6,7 @@ import map
 #import time_series
 import utils
 import clustering
+import linear_regression
 
 
 def find_arg(args, arg):
@@ -25,6 +26,7 @@ if __name__ == "__main__":
         print("Options:")
         print("\t--time-series\t\t\tDisplay time series analysis")
         print("\t--clustering\t\t\tDisplay clustering analysis")
+        print("\t--linear_regression\t\t\tDisplay linear regression analysis")
         print("\t--save-to-file <file>\tSave the kmeans models to a file")
         print("\t--print-all-stations\t\tDisplay a list of all stations in Serbia")
         print("\t--station <name>\t\tStation for which to do the analysis (\"Kikinda Centar\")")
@@ -95,5 +97,9 @@ if __name__ == "__main__":
                 clusters = pickle.load(fp)
             clustering.elbowMethod(data_scaled)
             m = map.map_of_serbia()
+            
+    if "--linear_regression" in args and station is not None:
+        location = linear_regression.making_table(station)
+        linear_regression.linear_regression(location)
         
 
