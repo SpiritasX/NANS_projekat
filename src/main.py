@@ -1,9 +1,8 @@
 import sys
-
 from matplotlib.animation import FuncAnimation
 import pandas as pd
 import map
-#import time_series
+import time_series
 import utils
 import clustering
 import linear_regression
@@ -65,13 +64,6 @@ if __name__ == "__main__":
     else:
         df = utils.load_all_tables(plot=True)
 
-    # if "--time-series" in args and station is not None:
-    #     df = utils.fillna_mean(df, station, 40)
-    #     time_series.yearly(df, station)
-    #     time_series.weekly(df, station)
-    #     time_series.time_series_trend(df, station)
-        
-
     if "--clustering" in args and years is not None:
         if "--save-to-file" in args:
             file_name = find_arg(args, "--save-to-file")
@@ -103,3 +95,10 @@ if __name__ == "__main__":
         linear_regression.linear_regression(location)
         
 
+    if "--time-series" in args and station is not None:
+        model = time_series.PFM(df, station)
+        time_series.plot_PFM(model, 365)
+        df = utils.fillna_mean(df, station, 40)
+        time_series.yearly(df, station)
+        time_series.weekly(df, station)
+        time_series.time_series_trend(df, station)
