@@ -101,8 +101,6 @@ if __name__ == "__main__":
             data = pickle.load(fp)
             num_of_frames_from_end = int(input("Number of days to animate (up to 732): "))
             clustering.clusters_to_video(data, num_of_frames_from_end)
-        
-        
 
     if "--linear-regression" in args and station is not None:
         df = linear_regression.making_table(station)

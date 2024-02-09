@@ -10,7 +10,7 @@ def making_table(location_name):
         df = fillna_mean(df, stanica) 
     print(df.columns)
 
-    location = pd.read_csv(f'data\LinReg\{location_name}.csv')
+    location = pd.read_csv(f'data\\LinReg\\{location_name}.csv')
 
     location.insert(0, 'pm2.5', list(df[location_name]))
     location = location.set_index('datetime')
@@ -24,17 +24,21 @@ def linear_regression(location):
     y = location['pm2.5']
     model = get_fitted_model(x, y)
     print(model.summary())
-    
-    location = location.drop(columns=['sealevelpressure', 'windspeed'])
-    x = location.drop(columns=['pm2.5'])
-    y = location['pm2.5']
-    x_train, x_test, y_train, y_test = train_test_split(x, y, train_size=0.8, random_state=42, shuffle=True)
-    model = get_fitted_model(x_train, y_train)
-    print(model.summary())
-    print(are_assumptions_satisfied(model,x_train,y_train))
 
-    test_rmse = get_rmse(model,x_test,y_test)
-    print(f'test rmse: {test_rmse:.2f}')
+    while(True):
+        column = input("Choose which column to drop (x to exit):")
+        if column == 'x':
+            break
+        location = location.drop(columns=[column])
+        x = location.drop(columns=['pm2.5'])
+        y = location['pm2.5']
+        x_train, x_test, y_train, y_test = train_test_split(x, y, train_size=0.8, random_state=42, shuffle=True)
+        model = get_fitted_model(x_train, y_train)
+        print(model.summary())
+        print(are_assumptions_satisfied(model,x_train,y_train))
+
+        test_rmse = get_rmse(model,x_test,y_test)
+        print(f'test rmse: {test_rmse:.2f}')
     
     # ax = plt.figure().add_subplot(projection='3d')
 
