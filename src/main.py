@@ -75,12 +75,14 @@ if __name__ == "__main__":
                 day_data = []
                 for station in pollution_data.columns:
                     station_data = [
+                        float(stations_info[station]['Latitude']),
+                        float(stations_info[station]['Longitude']),
                         float(stations_info[station]['Nadmorska visina'][:-1]),
-                        pollution_data[station][index],
-                        weather_data[station]['temp'][str(index)[:10]],
-                        weather_data[station]['humidity'][str(index)[:10]],
-                        weather_data[station]['windspeed'][str(index)[:10]],
-                        weather_data[station]['sealevelpressure'][str(index)[:10]]
+                        float(pollution_data[station][index]),
+                        float(weather_data[station]['temp'][str(index)[:10]]),
+                        float(weather_data[station]['humidity'][str(index)[:10]]),
+                        float(weather_data[station]['windspeed'][str(index)[:10]]),
+                        float(weather_data[station]['sealevelpressure'][str(index)[:10]])
                     ]
                     day_data.append(station_data)
                 result.append(day_data)
@@ -95,10 +97,10 @@ if __name__ == "__main__":
         # fittovan model koji odgovara jednom danu
         # Pristupanje klasterima jednog dana bi se vrsilo sa clusters[i].labels_
         file_name = find_arg(args, "--load-from-file")
-        data = None
         with open("data\\" + file_name + ".pkl", "rb") as fp:
             data = pickle.load(fp)
-            clustering.clusters_to_video(data)
+            num_of_frames_from_end = int(input("Number of days to animate (up to 732): "))
+            clustering.clusters_to_video(data, num_of_frames_from_end)
         
         
 

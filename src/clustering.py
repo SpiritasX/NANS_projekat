@@ -29,37 +29,37 @@ def elbowMethod(data_scaled):
 def save_clusters(result):
     list_of_models = []
     for datum in result:
-        kmeans = KMeans(n_clusters=2, init='k-means++', max_iter=300, n_init=10, random_state=0)
+        kmeans = KMeans(n_clusters=5, init='k-means++', max_iter=300, n_init=10, random_state=0)
         kmeans.fit(datum)
         datum = np.array(datum).T.tolist()
-        datum[1] = kmeans.labels_
+        datum[3] = kmeans.labels_
         datum = np.array(datum).T.tolist()
         list_of_models.append(datum)
     return list_of_models
 
 
-def generate_image(frame, data, m):
+def generate_image(frame, data, ax, m):
     print(frame)
     print(str(frame / len(data) * 100) + "%")
 
-    for lat, lon, vis, c in data[frame]:
-        lon, lat = m(lon, lat)
-        m.plot(lon, lat, color=marker_map[c], marker='o')
+    ax.clear()
+    m.drawcountries()
+    m.drawcoastlines()
 
+    for date in data[frame]:
+        lon, lat = m(date[1], date[0])
+        ax.plot(lon, lat, color=marker_map[date[3]], marker='o')
 
-def clusters_to_video(data):
+def clusters_to_video(data, num_of_frames_from_end):
+    # Set up animation parameters
+    desired_duration = 10
+    desired_fps = num_of_frames_from_end / desired_duration
+    interval = 1000 / desired_fps
+
     fig, ax = plt.subplots()
     m = map.map_of_serbia(ax)
-    m = map.edit_map_of_serbia(m)
 
-    # Postavljanje animacije
-    zeljena_trajanja = 10
-    zeljeni_fps = len(data) / zeljena_trajanja
-    intervall = 1000 / zeljeni_fps
+    ani = FuncAnimation(fig, partial(generate_image, data=data[-num_of_frames_from_end:], ax=ax, m=m), frames=num_of_frames_from_end, interval=interval)
 
-    #mpl.rcParams['animation.ffmpeg_path'] = r'C:\\Users\\tijan\\OneDrive\\Desktop\\ffmpeg-N-113561-ge05d3c1a16-win64-gpl\\bin\\ffmpeg.exe'
-    ani = FuncAnimation(fig, partial(generate_image, data=data, m=m), frames=len(data), interval=intervall)
-
-    #GIF
-    writergif = animation.PillowWriter(fps=zeljeni_fps)
+    writergif = animation.PillowWriter(fps=desired_fps)
     ani.save('data\\animacija.gif', writer=writergif)

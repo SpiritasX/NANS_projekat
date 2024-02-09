@@ -11,7 +11,6 @@ def edit_map_of_serbia(m):
     m.drawcounties(color='b')
     m.drawcoastlines()
     m.fillcontinents()
-
     return m
    
 
