@@ -113,4 +113,5 @@ if __name__ == "__main__":
         time_series.weekly(df_filled, station)
 
         model = time_series.PFM(df, station)
-        time_series.plot_PFM(model, 365)
+        days_to_predict = int(input("How many days do you want to predict for: "))
+        time_series.plot_PFM(model, days_to_predict)
