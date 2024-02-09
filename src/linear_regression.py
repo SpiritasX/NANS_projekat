@@ -1,9 +1,6 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from utils import *
-import matplotlib.pyplot as plt
-from loader import *
-from utils import *
 
 
 def making_table(location_name):
@@ -11,7 +8,7 @@ def making_table(location_name):
     df = load_all_tables(years = [2019, 2020], file = 'pm2.5')
     for stanica in df:
         df = fillna_mean(df, stanica) 
-    #print(df)
+    print(df.columns)
 
     location = pd.read_csv(f'data\LinReg\{location_name}.csv')
 

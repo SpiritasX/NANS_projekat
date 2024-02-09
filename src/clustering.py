@@ -1,8 +1,9 @@
 import numpy as np
 from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
-from map import edit_map_of_serbia
-import pickle
+from matplotlib import animation
+from matplotlib.animation import FuncAnimation
+import map
 
 # Pronalaženje optimalnog broja klastera pomoću metode "Elbow"
 def elbowMethod(data_scaled):
@@ -20,95 +21,56 @@ def elbowMethod(data_scaled):
     plt.show()
 
 
-# Obicno iscrtavanje frejmova
-def clustering(df_spojeno, data, m): 
-    #i = 0
-    marker_map = {0: 'green', 1: 'cornflowerblue', 2: 'orange', 3: 'red', 4:'purple'}
-
-    for datum in data.index:
-        #datum = '2019-01-01'
-        map =  edit_map_of_serbia(m)
-        temp = [[float(x) for x in list(df_spojeno.loc['Latitude'])], [float(x) for x in list(df_spojeno.loc['Longitude'])], [float(x[:-1]) for x in list(df_spojeno.loc['Nadmorska visina'])], list(data[df_spojeno.columns].loc[datum])]
+def save_clusters(df_spojeno, df):
+    list_of_models = []
+    for datum in df.index:
+        temp = [[float(x) for x in list(df_spojeno.loc['Latitude'])], [float(x) for x in list(df_spojeno.loc['Longitude'])], [float(x[:-1]) for x in list(df_spojeno.loc['Nadmorska visina'])], list(df[df_spojeno.columns].loc[datum])]
         temp = np.array(temp).T.tolist()
         kmeans = KMeans(n_clusters=2, init='k-means++', max_iter=300, n_init=10, random_state=0)
         kmeans.fit(temp)
         temp = np.array(temp).T.tolist()
         temp[3] = kmeans.labels_
         temp = np.array(temp).T.tolist()
-        for lat, lon, vis, c in temp:
-            lon, lat = map(lon, lat)
-            map.plot(lon, lat, color=marker_map[c], marker='o')
-        
-        # if i == 8:
-        #     break
-        # else:
-        #     i+=1
-        #     plt.show()
-
-def save_clusters(df_spojeno, df):
-    list_of_models = []
-    for datum in data.index:
-        temp = [[float(x) for x in list(df_spojeno.loc['Latitude'])], [float(x) for x in list(df_spojeno.loc['Longitude'])], [float(x[:-1]) for x in list(df_spojeno.loc['Nadmorska visina'])], list(df[df_spojeno.columns].loc[datum])]
-        temp = np.array(temp).T.tolist()
-        kmeans = KMeans(n_clusters=2, init='k-means++', max_iter=300, n_init=10, random_state=0)
-        kmeans.fit(temp)
-        list_of_models.append(kmeans)
+        list_of_models.append(temp)
     return list_of_models
 
-# ANIMACIJA
-'''
-# Inicijalizacija praznog grafa
+
+draw = None
+marker_map = {0: 'green', 1: 'cornflowerblue', 2: 'orange', 3: 'red', 4:'purple'}
 fig, ax = plt.subplots()
 
-i = 0
-# Funkcija koja generiše slike
+
 def generate_image(frame): # saljem 365 frejmova
+    print(frame)
+    print(str(frame / len(draw) * 100) + "%")
 
     ax.clear()
-    datum = data.index[frame] #pristupam trazenom frejmu
-    
-    # for datum in data.index:
-    #     datum = '2019-01-01'
-    m.drawcountries()
-    m.drawcounties(color='b')
-    m.drawcoastlines()
-    m.fillcontinents()
 
-    temp = [[float(x) for x in list(df_spojeno.loc['Latitude'])], [float(x) for x in list(df_spojeno.loc['Longitude'])], [float(x[:-1]) for x in list(df_spojeno.loc['Nadmorska visina'])], list(data[df_spojeno.columns].loc[datum])]
-    temp = np.array(temp).T.tolist()
+    m = map.map_of_serbia()
+    m = map.edit_map_of_serbia(m)
 
-    kmeans = KMeans(n_clusters=3, init='k-means++', max_iter=300, n_init=10, random_state=0)
-    kmeans.fit(temp)
-    temp = np.array(temp).T.tolist()
-    temp[3] = kmeans.labels_
-    temp = np.array(temp).T.tolist()
-
-    for lat, lon, vis, c in temp:
+    for lat, lon, vis, c in draw[frame]:
         lon, lat = m(lon, lat)
-        m.plot(lon, lat, color=marker_map[c], marker='o')
+        m.plot(lon, lat, color=marker_map[c], marker='o', ax=ax)
 
-    # if i == 4:
-    #     break
-    # else:
-    #     i+=1
-    #     plt.show()
-        
-# Postavljanje animacije
-zeljena_trajanja = 10
-zeljeni_fps = len(data.index) / zeljena_trajanja
-intervall = 1000 / zeljeni_fps
 
-#mpl.rcParams['animation.ffmpeg_path'] = r'C:\\Users\\tijan\\OneDrive\\Desktop\\ffmpeg-N-113561-ge05d3c1a16-win64-gpl\\bin\\ffmpeg.exe'
-ani = FuncAnimation(fig, generate_image, frames=len(data.index), interval=intervall)
+def clusters_to_video(data):
+    global draw
+    draw = data
+    # Postavljanje animacije
+    zeljena_trajanja = 10
+    zeljeni_fps = len(data) / zeljena_trajanja
+    intervall = 1000 / zeljeni_fps
 
-# Prikazivanje animacije
-#plt.show()     
-#video_writer = animation.FFMpegWriter(fps=70)
-#ani.save('C:\\Users\\tijan\\OneDrive\\Desktop\\rkoanp\\animacija.gif', writer=video_writer)  
+    #mpl.rcParams['animation.ffmpeg_path'] = r'C:\\Users\\tijan\\OneDrive\\Desktop\\ffmpeg-N-113561-ge05d3c1a16-win64-gpl\\bin\\ffmpeg.exe'
+    ani = FuncAnimation(fig, generate_image, frames=len(data), interval=intervall)
 
-#GIF
-writergif = animation.PillowWriter(fps=zeljeni_fps) 
-ani.save('C:\\Users\\tijan\\OneDrive\\Desktop\\rkoanp\\animacija.gif', writer=writergif)
-# Na osnovu grafika, odaberite optimalan broj klastera i ažurirajte n_clusters u sledećem koraku
-optimalni_broj_klastera = 3 # postavite optimalan broj klastera
-'''
+    # Prikazivanje animacije
+    #plt.show()
+    #video_writer = animation.FFMpegWriter(fps=70)
+    #ani.save('C:\\Users\\tijan\\OneDrive\\Desktop\\rkoanp\\animacija.gif', writer=video_writer)
+
+    #GIF
+    writergif = animation.PillowWriter(fps=zeljeni_fps)
+    ani.save('data\\animacija.gif', writer=writergif)
+    # Na osnovu grafika, odaberite optimalan broj klastera i ažurirajte n_clusters u sledećem koraku

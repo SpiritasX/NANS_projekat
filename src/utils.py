@@ -1,20 +1,12 @@
-import matplotlib
-import matplotlib.pyplot as plt
 import seaborn as sb
 import pandas as pd
-<<<<<<< HEAD
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler
-=======
 import numpy as np
 import statsmodels.api as sm
 from statsmodels.regression.linear_model import RegressionResultsWrapper
-from sklearn.linear_model import LinearRegression    
->>>>>>> regresija
+from sklearn.linear_model import LinearRegression
 
-
-matplotlib.rcParams['figure.figsize'] = (8, 4)
-sb.set(font_scale=1.)
 
 def fillna_mean(df, col_name, chunk = 40):
     df_copy = df.copy()
@@ -32,9 +24,13 @@ def fillna_mean(df, col_name, chunk = 40):
     # df_copy[col_name] = df_copy[col_name].fillna(window.mean())
     # return df_copy
 
-<<<<<<< HEAD
 
-def load_all_tables(plot=False, years=[x for x in range(2011, 2021)], file='co'):
+def load_all_tables(years, file, plot=False):
+    if years is None:
+        years = [x for x in range(2011, 2021)]
+    if file is None:
+        file = 'co'
+
     dfs = []
     for year in years:
         try:
@@ -51,7 +47,7 @@ def load_all_tables(plot=False, years=[x for x in range(2011, 2021)], file='co')
         df[column] = pd.to_numeric(df[column], errors='coerce')
 
     if plot:
-        df.plot(legend=None)
+        df.plot()#legend=None)
         plt.show()
 
     return df
@@ -75,7 +71,8 @@ def transposing(stanice):
 
 def inner_join_tables(dfs):
     return pd.concat(dfs, join='inner')
-=======
+
+
 def calculate_residuals(model, features, labels):
     '''Calculates residuals between true value `labels` and predicted value.'''
     y_pred = model.predict(features)
@@ -259,14 +256,6 @@ def check_for_missing_values(df):
     })
 
 
-def fillna_mean(df, col_name):
-    '''Fill NA values with mean.'''
-    df_copy = df.copy()
-    col_mean = df_copy[col_name].mean()
-    df_copy[col_name] = df[col_name].fillna(col_mean)
-    return df_copy
-
-
 def visualize_column(df, col_name,  df_fixed=None):
     '''plot a single column values in a specified column.'''
     x = df.index
@@ -371,6 +360,3 @@ def fit_and_get_rsquared_adj_test(x_train, x_test, y_train, y_test):
     y_pred = model.predict(sm.add_constant(x_test))
     adj_r2 = get_rsquared_adj(y_true=y_test, y_pred=y_pred, num_attributes=x_test.shape[1])
     return model, adj_r2
-
-
->>>>>>> regresija
