@@ -26,17 +26,15 @@ def elbowMethod(data_scaled):
     plt.show()
 
 
-def save_clusters(df_spojeno, df):
+def save_clusters(result):
     list_of_models = []
-    for datum in df.index:
-        temp = [[float(x) for x in list(df_spojeno.loc['Latitude'])], [float(x) for x in list(df_spojeno.loc['Longitude'])], [float(x[:-1]) for x in list(df_spojeno.loc['Nadmorska visina'])], list(df[df_spojeno.columns].loc[datum])]
-        temp = np.array(temp).T.tolist()
+    for datum in result:
         kmeans = KMeans(n_clusters=2, init='k-means++', max_iter=300, n_init=10, random_state=0)
-        kmeans.fit(temp)
-        temp = np.array(temp).T.tolist()
-        temp[3] = kmeans.labels_
-        temp = np.array(temp).T.tolist()
-        list_of_models.append(temp)
+        kmeans.fit(datum)
+        datum = np.array(datum).T.tolist()
+        datum[1] = kmeans.labels_
+        datum = np.array(datum).T.tolist()
+        list_of_models.append(datum)
     return list_of_models
 
 
