@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 # from matplotlib.patches import Circle
 
 
-def map_of_serbia():
-    return Basemap(llcrnrlon=18.7,llcrnrlat=41.7,urcrnrlon=23.2,urcrnrlat=46.3, resolution='i', projection='merc')
+def map_of_serbia(ax):
+    return Basemap(llcrnrlon=18.7,llcrnrlat=41.7,urcrnrlon=23.2,urcrnrlat=46.3, resolution='i', projection='merc', ax=ax)
 
 def edit_map_of_serbia(m):
     m.drawcountries()

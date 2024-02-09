@@ -4,6 +4,11 @@ import matplotlib.pyplot as plt
 from matplotlib import animation
 from matplotlib.animation import FuncAnimation
 import map
+from functools import partial
+
+
+marker_map = {0: 'green', 1: 'cornflowerblue', 2: 'orange', 3: 'red', 4:'purple'}
+
 
 # Pronalaženje optimalnog broja klastera pomoću metode "Elbow"
 def elbowMethod(data_scaled):
@@ -35,35 +40,27 @@ def save_clusters(df_spojeno, df):
     return list_of_models
 
 
-draw = None
-marker_map = {0: 'green', 1: 'cornflowerblue', 2: 'orange', 3: 'red', 4:'purple'}
-fig, ax = plt.subplots()
+def generate_image(frame, data, m):
+    print(frame)
+    print(str(frame / len(data) * 100) + "%")
 
-
-def generate_image(frame): 
-    #print(frame)
-    #print(str(frame / len(draw) * 100) + "%")
-
-    ax.clear()
-    
-    m = map.map_of_serbia()     
-    m = map.edit_map_of_serbia(m)
-
-    for lat, lon, vis, c in draw[frame]:
+    for lat, lon, vis, c in data[frame]:
         lon, lat = m(lon, lat)
-        m.plot(lon, lat, color=marker_map[c], marker='o', ax=ax)
+        m.plot(lon, lat, color=marker_map[c], marker='o')
 
 
 def clusters_to_video(data):
-    global draw
-    draw = data
+    fig, ax = plt.subplots()
+    m = map.map_of_serbia(ax)
+    m = map.edit_map_of_serbia(m)
+
     # Postavljanje animacije
     zeljena_trajanja = 10
     zeljeni_fps = len(data) / zeljena_trajanja
     intervall = 1000 / zeljeni_fps
 
     #mpl.rcParams['animation.ffmpeg_path'] = r'C:\\Users\\tijan\\OneDrive\\Desktop\\ffmpeg-N-113561-ge05d3c1a16-win64-gpl\\bin\\ffmpeg.exe'
-    ani = FuncAnimation(fig, generate_image, frames=len(data.index), interval=intervall)
+    ani = FuncAnimation(fig, partial(generate_image, data=data, m=m), frames=len(data), interval=intervall)
 
     #GIF
     writergif = animation.PillowWriter(fps=zeljeni_fps)

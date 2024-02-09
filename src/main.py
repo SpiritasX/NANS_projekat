@@ -68,7 +68,7 @@ if __name__ == "__main__":
             #spajanje df i stations tabela
             stanice_transposed = utils.transposing(stations)
             df_spojeno = utils.inner_join_tables([stanice_transposed, df])
-            
+
             # odredjujemo i cuvamo klastere
             data_to_save = clustering.save_clusters(df_spojeno, df)
 
