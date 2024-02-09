@@ -55,14 +55,21 @@ if __name__ == "__main__":
         if "--save-to-file" in args:
             file_name = find_arg(args, "--save-to-file")
 
+            # spajamo tabele za podacima
             df = utils.load_all_tables(years=years, file='pm2.5')
+            # popunjavano na vrednosti
             stations = pd.read_csv('data\stanice.csv', header=None)
             for stanica in df:
                 df = utils.fillna_mean(df, stanica, chunk=80)
 
             data_scaled = utils.normalize(df)
+            clustering.elbowMethod(data_scaled)
+
+            #spajanje df i stations tabela
             stanice_transposed = utils.transposing(stations)
             df_spojeno = utils.inner_join_tables([stanice_transposed, df])
+            
+            # odredjujemo i cuvamo klastere
             data_to_save = clustering.save_clusters(df_spojeno, df)
 
             with open("data\\" + file_name + ".pkl", "wb") as fp:
@@ -76,8 +83,8 @@ if __name__ == "__main__":
         with open("data\\" + file_name + ".pkl", "rb") as fp:
             data = pickle.load(fp)
             clustering.clusters_to_video(data)
-        clustering.elbowMethod(data_scaled)
-        m = map.map_of_serbia()
+        
+        
 
     if "--linear-regression" in args and station is not None:
         df = linear_regression.making_table(station)

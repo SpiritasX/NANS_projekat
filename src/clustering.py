@@ -40,13 +40,13 @@ marker_map = {0: 'green', 1: 'cornflowerblue', 2: 'orange', 3: 'red', 4:'purple'
 fig, ax = plt.subplots()
 
 
-def generate_image(frame): # saljem 365 frejmova
-    print(frame)
-    print(str(frame / len(draw) * 100) + "%")
+def generate_image(frame): 
+    #print(frame)
+    #print(str(frame / len(draw) * 100) + "%")
 
     ax.clear()
-
-    m = map.map_of_serbia()
+    
+    m = map.map_of_serbia()     
     m = map.edit_map_of_serbia(m)
 
     for lat, lon, vis, c in draw[frame]:
@@ -63,14 +63,8 @@ def clusters_to_video(data):
     intervall = 1000 / zeljeni_fps
 
     #mpl.rcParams['animation.ffmpeg_path'] = r'C:\\Users\\tijan\\OneDrive\\Desktop\\ffmpeg-N-113561-ge05d3c1a16-win64-gpl\\bin\\ffmpeg.exe'
-    ani = FuncAnimation(fig, generate_image, frames=len(data), interval=intervall)
-
-    # Prikazivanje animacije
-    #plt.show()
-    #video_writer = animation.FFMpegWriter(fps=70)
-    #ani.save('C:\\Users\\tijan\\OneDrive\\Desktop\\rkoanp\\animacija.gif', writer=video_writer)
+    ani = FuncAnimation(fig, generate_image, frames=len(data.index), interval=intervall)
 
     #GIF
     writergif = animation.PillowWriter(fps=zeljeni_fps)
     ani.save('data\\animacija.gif', writer=writergif)
-    # Na osnovu grafika, odaberite optimalan broj klastera i ažurirajte n_clusters u sledećem koraku
